@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+</head>
+<body>
+  <style>
+       body {
+            font-family: 'poppins', sans-serif;
+           
+            margin: 0; /* Reset margin */
+            height: 100vh; /* Full height of the viewport */
+            display: flex; /* Use flexbox for centering */
+            flex-direction: column; /* Center vertically */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            background-color: #f0f0f0; /* Light background color */
+        }
+      h3{
+          text-align: center;
+      }
+      form{
+          display: flex;
+          flex-direction: column;
+          margin: auto;
+      }
+      input{
+          height: 25px;
+          width: 200px;
+          border-radius: 7px;
+          border: none;
+          border: 1px solid black;
+          outline: none;
+          padding: 0 5px;
+      }
+      .button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007BFF; /* Bootstrap primary color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none; /* Remove underline from links */
+            display: inline-block; /* Allow margin to work */
+        }
+        .button:hover {
+            background-color: #0056b3; /* Darker shade for hover effect */
+        }
+      h3{
+          text-align: center;
+      }
+      h5{
+          color:red;
+      }
+  </style>
+  <h3>Sign Up</h3>
+  {% for message in messages %}
+  <h5>{{message}}</h5>
+  {% endfor %}
+  <form action="" method="POST">
+      {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" required>
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" id="lname" required>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+      <label for="confirm-password">Confirm Password</label>
+        <input type="password" name="confirmpassword" id="confirm-password">
+      <button type="submit" class="button">Sign Up</button>
+  </form>
+</body>
+</html>

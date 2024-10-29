@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login System</title>
+    <style>
+        body {
+            font-family: 'poppins', sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #007BFF; /* Bootstrap primary color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none; /* Remove underline from links */
+            display: inline-block; /* Allow margin to work */
+        }
+        .button:hover {
+            background-color: #0056b3; /* Darker shade for hover effect */
+        }
+        a{
+            color:white;
+            text-underline: none;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+<body>
+{% for message in message %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong>Message:</strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+    <h3>Welcome To Our Login System</h3>
+    {% if myUser.is_authenticated %}
+    <h3>Hello {{ fname }}</h3>
+    <h4>You're successfully logged in</h4>
+    <button class="button"><a href="{% url 'signout' %}">Sign Out</a></button>
+    {% else %}
+    <button class="button"><a href="{% url 'signup' %}">Sign Up</a></button>
+    <button class="button"><a href="{% url 'signin' %}">Sign In</a></button>
+    {% endif %}
+</body>
+</html>
